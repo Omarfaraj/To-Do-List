@@ -4,26 +4,16 @@ body {
     padding: 0;
     background-color: #f2f2f2;
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
 #app {
-    display: flex;
     background-color: #fff;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Adjust as needed */
-    margin: auto;
-}
-
-#datePickerContainer {
-    padding: 20px;
-    border-right: 1px solid #ddd;
-    text-align: left;
-}
-
-#contentContainer {
-    padding: 20px;
     text-align: center;
 }
 
