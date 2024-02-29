@@ -15,10 +15,28 @@
             <!-- Task items go here -->
         </div>
         
+        <button id="addTaskButton" onclick="showAddTaskModal()"></button>
         <!-- Display achievements for the selected date -->
         <div id="achievements">
             <!-- Achievement items go here -->
     </div>
-    <script src="lis.js"></script>
+     
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideAddTaskModal()">&times
+                <label for="newTask">New Task</label>
+                <input type="text" id="newTask" placeholder="Enter task...">
+                <button onclick="addTask()">Add Task</button>
+            </span>
+            <div>
+                <button id="addTaskButton" onclick="toggleAddTaskMenu()">
+                    <span id="plusIcon">+</span>
+                    <div id="taskMenu">
+                      <div onclick="showAddTaskModal()">Add Task</div>
+                      <!-- Add more menu items as needed --> 
+            </div>
+        </div>
+    </div>
+    <script src="list.js" defer></script>
 </body>
 </html>
