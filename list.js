@@ -33,7 +33,7 @@ function loadTasks() {
 }
 
 function showAddTaskModal() {
-    //const addTaskModal = document.getElementById('addtaskModal');
+    
     document.getElementById('addTaskModal').style.display = 'block';
     
 }
@@ -46,22 +46,6 @@ function addTask() {
     const newTaskInput = document.getElementById('newTask');
     const taskList = document.getElementById('taskList');
 
-//    .. function toggleAddTaskMenu() {
-//         const plusIcon = document.getElementById('plusIcon');
-//         const taskMenu = document.getElementById('taskMenu');
-    
-//         // Toggle rotation effect
-//         plusIcon.style.transform = plusIcon.style.transform === 'rotate(45deg)' ? 'rotate(0deg)' : 'rotate(45deg)';
-    
-//         // Toggle menu visibility
-//         taskMenu.style.display = taskMenu.style.display === 'block' ? 'none' : 'block';
-//     }
-    
-//     function showAddTaskModal() {
-//         // Function to show the modal
-//         // Add your existing code for showing the modal here
-//     }..
-
     // Get the task text from the input
     const taskText = newTaskInput.value;
 
@@ -72,13 +56,40 @@ function addTask() {
         taskDiv.textContent = taskText;
         taskDiv.className = 'task-item';
 
-        // Append the task div to the task list
+        
         taskList.appendChild(taskDiv);
 
-        // Clear the input
+    
         newTaskInput.value = '';
 
-        // Hide the add task modal
+        
         hideAddTaskModal();
     }
 }
+
+// Function to save tasks for the next day
+function saveTasksForNextDay() {
+    const currentDate = document.getElementById('datePicker').value;
+    const nextDate = new Date(date.Parse(currentdate)); // for current day.
+    nextDate.setDate(nextDate.getDate() +1 ); //for next day
+
+    tasksData[nextDate.toISOString().split('T')[0]] = [];
+
+    const taskList = document.getElementById('taskList');
+    const tasks = Array.from(taskList.children).map(child => child.textContent);
+
+    tasks.forEach(task => {
+        tasksData[nextDate.toISOString().split('T')[0]].push({ id: Date.now() + tasks.indexOf(task), title: task });
+    });
+
+    loadTasks();
+}
+
+// Add a button to trigger the function
+// const nextDayButton = document.createElement('button');
+// nextDayButton.textContent = 'Save tasks for next day';
+// nextDayButton.addEventListener('click', saveTasksForNextDay);
+// document.body.appendChild(nextDayButton);
+
+// // function to handle date changes in the date picker
+// document.getElementById('datePicker').addEventListener('change', loadTasks);
