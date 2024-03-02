@@ -43,6 +43,8 @@ function hideAddTaskModal() {
 }
 
 function addTask() {
+    const taskDiv = document.querySelector('.task-item');
+
     const newTaskInput = document.getElementById('newTask');
     const taskList = document.getElementById('taskList');
 

@@ -112,7 +112,39 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     overflow: hidden;
-}    
+}
+
+task-item {
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.task-item:hover {
+    background-color: #ff0000;
+    color: #f00;
+    /* text-shadow:1px 1px 1px #ff0000,
+                1px -1px 1px #ff0000,
+                -1px 1px 1px #ff0000,
+                -1px -1px 1px #ff0000, 
+                0 0 5px #ff0000; */
+}
+
+.task-item.highlight {
+    background-color: #ff0000;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: #fff;
+    }
+    100% {
+        background-color: #ff0000;
+    }
+}
+
+.task-item.highlight {
+    animation: highlight 0.3s forwards;
+}
 
 .modal {
     display: none;
